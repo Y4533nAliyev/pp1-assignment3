@@ -14,4 +14,5 @@ int main(){
   average = (double)sum / count;
   printf("The sum is: %d\n", sum);
   printf("The average is: %.2lf\n", average);
+  return 0;
 }

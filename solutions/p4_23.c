@@ -1,16 +1,22 @@
 #include <stdio.h>
-#include <math.h>
 
-int main(){
-  int principal = 1000;
-  int rate = 5;
+int main(void)
+{
+   int principal = 100000; 
+   int rate = 5;           
+   int amount = principal; 
 
-  printf("%4s%21s\n", "Year", "Amount on deposit");
-  for( unsigned int year = 1; year <= 10; ++year){
-    int amount = principal * pow(1 + (rate / 100), year);
+   printf("%4s%21s\n", "Year", "Amount on deposit");
 
-    printf("%4u%21.2d\n", year, amount);
-  }
+   for (unsigned int year = 1; year <= 10; ++year) {
 
-  return 0;
+      amount = amount + (amount * rate) / 100;
+
+      int dollars = amount / 100; 
+      int cents = amount % 100;   
+
+      printf("%4u%18d.%02d\n", year, dollars, cents);
+   }
+
+   return 0;
 }

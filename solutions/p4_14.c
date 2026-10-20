@@ -1,15 +1,23 @@
 #include <stdio.h>
 
-int main(){
-  int num;
-  int factorial = 1;
-  num = 5;
-  for(int i = 0; i <= num; i++){
-    factorial = 1;
-    for(int j = i; j > 0; j--){
-      factorial *= j;
+int factorial(int n);
+
+int main(void){
+
+    printf("n\t n!\t\n");
+
+    for(int i = 1; i <= 5; i++){
+        printf("%d\t %d\t\n", i, factorial(i));
     }
-    printf("%d! = %d\n", i, factorial);
-  }
-  return 0;
 }
+
+int factorial(int n){
+    int f = 1;
+
+    for(int i = 1; i <= n; i++){
+        f *= i;
+    }
+
+    return f;
+}
+//If we try to get 20!, then there will be overflow. However, if we use long long instead of integers, it will work.

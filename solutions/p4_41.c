@@ -1,29 +1,35 @@
 #include <stdio.h>
 
 int main(void) {
-    double population = 8000000000.0;
-    double rate = 0.01;
-    double original_pop = population;
-    int double_year = 0;
+    float housing, food, clothing, transportation, education, healthcare, vacations;
+    float total, tax;
 
-    printf("%-6s %-24s %-20s\n", "Year", "Anticipated Population", "Numerical Increase");
+    printf("Enter housing expenses: ");
+    scanf("%f", &housing);
 
-    for (int year = 1; year <= 75; year++) {
-        double increase = population * rate;
-        population += increase;
+    printf("Enter food expenses: ");
+    scanf("%f", &food);
 
-        printf("%-6d %-24.0f %-20.0f\n", year, population, increase);
+    printf("Enter clothing expenses: ");
+    scanf("%f", &clothing);
 
-        if (double_year == 0 && population >= 2 * original_pop) {
-            double_year = year;
-        }
-    }
+    printf("Enter transportation expenses: ");
+    scanf("%f", &transportation);
 
-    if (double_year != 0) {
-        printf("\nPopulation doubles in year %d\n", double_year);
-    } else {
-        printf("\nPopulation does not double within 75 years\n");
-    }
+    printf("Enter education expenses: ");
+    scanf("%f", &education);
+
+    printf("Enter health care expenses: ");
+    scanf("%f", &healthcare);
+
+    printf("Enter vacations expenses: ");
+    scanf("%f", &vacations);
+
+    total = housing + food + clothing + transportation + education + healthcare + vacations;
+    tax = total * 0.23;
+
+    printf("\nTotal Expenses: $%.2f\n", total);
+    printf("Estimated FairTax (23 percent): $%.2f\n", tax);
 
     return 0;
 }
